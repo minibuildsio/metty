@@ -1,0 +1,51 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.9.22'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.9.21'
+    id 'application'
+}
+
+ext {
+    ktor_version = "2.3.5"
+}
+
+kotlin {
+    jvmToolchain(17)
+}
+
+jar {
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+
+    manifest {
+        attributes(
+                'Main-Class': 'io.minibuilds.metty.AppKt'
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation platform('org.jetbrains.kotlin:kotlin-bom')
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib'
+    implementation 'com.github.ajalt.mordant:mordant:2.2.0'
+    implementation "io.ktor:ktor-client-core:$ktor_version"
+    implementation "io.ktor:ktor-client-cio:$ktor_version"
+    implementation "io.ktor:ktor-client-content-negotiation:$ktor_version"
+    implementation "io.ktor:ktor-serialization-kotlinx-json:$ktor_version"
+    implementation "org.slf4j:slf4j-simple:1.6.1"
+
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
+    testImplementation 'io.kotest:kotest-assertions-core:2.4.1'
+    testImplementation 'io.mockk:mockk:1.13.8'
+    testImplementation "io.ktor:ktor-client-mock:$ktor_version"
+}
+
+application {
+    mainClass = 'metty.AppKt'
+}

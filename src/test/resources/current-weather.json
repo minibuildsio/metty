@@ -1,0 +1,44 @@
+{
+  "coord": {
+    "lon": -1.41,
+    "lat": 50.91
+  },
+  "weather": [
+    {
+      "id": 804,
+      "main": "Clouds",
+      "description": "overcast clouds",
+      "icon": "04d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 284.95,
+    "feels_like": 284.38,
+    "temp_min": 284.38,
+    "temp_max": 285.52,
+    "pressure": 1004,
+    "humidity": 84
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 5.81,
+    "deg": 218,
+    "gust": 11.62
+  },
+  "clouds": {
+    "all": 89
+  },
+  "dt": 1703773518,
+  "sys": {
+    "type": 2,
+    "id": 2012639,
+    "country": "GB",
+    "sunrise": 1703750892,
+    "sunset": 1703779532
+  },
+  "timezone": 0,
+  "id": 2637487,
+  "name": "Southampton",
+  "cod": 200
+}
